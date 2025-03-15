@@ -9,9 +9,13 @@ import SwiftUI
 
 @main
 struct GroceryTrackerApp: App {
+    @StateObject private var viewModel = ItemsViewModel()
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            NavigationStack {
+                HomeView()
+                    .environmentObject(viewModel)
+            }
         }
     }
 }
